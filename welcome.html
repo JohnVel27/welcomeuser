@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample Form</title>
+</head>
+<body>
+    <h1>Welcome!</h1>
+    <p>Please enter your name:</p>
+    <form id="userForm" onsubmit="submitForm(event)">
+        <input type="text" id="userName" name="userName" placeholder="Enter your name" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    <div id="greetingMessage" style="display: none;"> <!-- Initially hidden -->
+        <p>Thank you, <span id="userNameDisplay"></span>!</p>
+    </div>
+
+    <script>
+        function submitForm(event) {
+            event.preventDefault(); // Prevents the form from submitting and refreshing the page
+            var userName = document.getElementById('userName').value;
+            document.getElementById('userNameDisplay').textContent = userName; // Display the user's name
+            document.getElementById('greetingMessage').style.display = 'block'; // Show the greeting message
+        }
+    </script>
+</body>
+</html>
